@@ -18,6 +18,12 @@ Vergleicht reale BOS-Standorte mit den eigenen Gebäuden im Leitstellenspiel. Ei
 
 **Aktuelle Version:** 1.2.2 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_BOS_Ausbauplaner.user.js)
 
+### LSS – Verbandsfreigabe
+
+Erkennt eigene Einsätze ab einer einstellbaren durchschnittlichen Creditvergütung und bietet die gezielte Freigabe für den Verband.
+
+**Aktuelle Version:** 0.1.1 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Verbandsfreigabe.user.js)
+
 Die Addons unterstützen automatische Updates über Tampermonkey.
 
 ## Rechte und Datenbasis
