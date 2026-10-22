@@ -10,13 +10,15 @@ BRUHN MEDIA entwickelt praxisorientierte Tools für eine übersichtliche Kartena
 
 Zeigt reale BOS-Standorte in Niedersachsen direkt auf der Spielkarte. Mit Organisationsfiltern, Standortinformationen und intelligenter Marker-Gruppierung.
 
-**Aktuelle Version:** 2.3.5
+**Aktuelle Version:** 2.4.2 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/LSS_Reale_Standorte.user.js)
 
 ### LSS – BOS Ausbauplaner
 
 Vergleicht reale BOS-Standorte mit den eigenen Gebäuden im Leitstellenspiel. Eine visuelle Planungshilfe zur Erkennung möglicher Ausbaupotenziale.
 
-**Aktuelle Version:** 1.1.4
+**Aktuelle Version:** 1.2.2 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_BOS_Ausbauplaner.user.js)
+
+Die Addons unterstützen automatische Updates über Tampermonkey.
 
 ## Rechte und Datenbasis
 
