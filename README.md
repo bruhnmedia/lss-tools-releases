@@ -1,0 +1,27 @@
+# BRUHN MEDIA · LSS Tools
+
+**Unabhängige Erweiterungen für Leitstellenspiel.de.**
+
+BRUHN MEDIA entwickelt praxisorientierte Tools für eine übersichtliche Kartenansicht und den realitätsnahen Ausbau von Leitstellen und Einsatzorganisationen.
+
+## Addons
+
+### LSS – Reale Standorte
+
+Zeigt reale BOS-Standorte in Niedersachsen direkt auf der Spielkarte. Mit Organisationsfiltern, Standortinformationen und intelligenter Marker-Gruppierung.
+
+**Aktuelle Version:** 2.3.5
+
+### LSS – BOS Ausbauplaner
+
+Vergleicht reale BOS-Standorte mit den eigenen Gebäuden im Leitstellenspiel. Eine visuelle Planungshilfe zur Erkennung möglicher Ausbaupotenziale.
+
+**Aktuelle Version:** 1.1.4
+
+## Rechte und Datenbasis
+
+© 2026 BRUHN MEDIA. Alle Rechte an eigenen schutzfähigen Programmteilen vorbehalten. Die Nutzung richtet sich nach [LIZENZ.md](LIZENZ.md).
+
+Standortdaten: © OpenStreetMap-Mitwirkende, [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/).
+
+Diese Erweiterungen sind unabhängig entwickelt und stehen in keiner offiziellen Verbindung zu Leitstellenspiel.de oder den dargestellten Organisationen. Standortdaten können unvollständig oder veraltet sein.
