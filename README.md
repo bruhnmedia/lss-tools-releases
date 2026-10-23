@@ -6,6 +6,15 @@ BRUHN MEDIA entwickelt praxisorientierte Tools für eine übersichtliche Kartena
 
 ## Addons
 
+### LSS – BOS Manager (empfohlen)
+
+Vereint **Reale Standorte** und **BOS Ausbauplaner** in einem Script: Organisationsfilter, intelligente Standort-Gruppierung und Vergleich mit den eigenen Gebäuden inklusive Zuordnungsstatus und Suchradius. Die Standortdaten beziehen sich auf Niedersachsen.
+
+**Aktuelle Version:** 1.0.0 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_BOS_Manager.user.js)
+
+**Hinweis:** Der BOS Manager ersetzt funktional die beiden bisherigen Einzel-Scripts. Bitte in Tampermonkey **„Reale Standorte“ und „BOS Ausbauplaner“ deaktivieren**, bevor Du den BOS Manager aktiv nutzt. Die alten Downloads bleiben für bestehende Installationen erhalten. Die **Verbandsfreigabe** bleibt ein eigenständiges Script.
+
+---
 ### LSS – Reale Standorte
 
 Zeigt reale BOS-Standorte in Niedersachsen direkt auf der Spielkarte. Mit Organisationsfiltern, Standortinformationen und intelligenter Marker-Gruppierung.
