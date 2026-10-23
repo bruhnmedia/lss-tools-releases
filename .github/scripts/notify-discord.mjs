@@ -65,13 +65,24 @@ function updatedScripts() {
     }];
   });
 }
+function recentChanges(file) {
+  try {
+    const range = isExistingCommit(before) ? before + '..' + after : after;
+    const titles = git(['log', '-5', '--format=%s', range, '--', file])
+      .split('\n').filter(Boolean).slice(0, 3);
+    return titles.length ? titles.map(title => '• ' + safeSummary(title, 160)).join('\n')
+      : 'Weitere Details im Commit-Verlauf';
+  } catch {
+    return 'Weitere Details im Commit-Verlauf';
+  }
+}
 function embedFor(item) {
   const raw = 'https://raw.githubusercontent.com/' + repo + '/main/' + encodeURIComponent(item.file);
   const changes = 'https://github.com/' + repo + '/commits/main/' + encodeURIComponent(item.file);
   const description = 'Eine neue Version ist jetzt verfügbar.\n\n' +
     '**Version:** ' + safeSummary(item.version, 48) + '\n' +
     '**Vorher:** ' + safeSummary(item.oldVersion || 'Erstveröffentlichung', 48) + '\n' +
-    '**Änderungen:** Siehe Commit-Verlauf und Versionshinweise im Repository.';
+    '**Änderungen (Commit-Titel):**\n' + recentChanges(item.file);
   return {
     title: '🚀 ' + safeSummary(item.name, 190),
     description,
