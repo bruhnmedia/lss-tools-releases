@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BRUHN MEDIA | LSS – Verbandsfreigabe
 // @namespace    https://github.com/bruhnmedia/lss-tools-releases
-// @version      0.1.1
+// @version      0.1.2
 // @description  Erkennt Einsätze ab einem einstellbaren durchschnittlichen Creditwert und ermöglicht die Verbandsfreigabe mit einem Klick.
 // @author       BRUHN MEDIA
 // @match        https://www.leitstellenspiel.de/*
