@@ -10,7 +10,7 @@ BRUHN MEDIA entwickelt praxisorientierte Tools für eine übersichtliche Kartena
 
 Vereint **Reale Standorte** und **BOS Ausbauplaner** in einem Script: Organisationsfilter, intelligente Standort-Gruppierung und Vergleich mit den eigenen Gebäuden inklusive Zuordnungsstatus und Suchradius. Die Standortdaten beziehen sich auf Niedersachsen.
 
-**Aktuelle Version:** 1.0.0 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_BOS_Manager.user.js)
+**Aktuelle Version:** 1.0.1 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_BOS_Manager.user.js)
 
 **Hinweis:** Der BOS Manager ersetzt funktional die beiden bisherigen Einzel-Scripts. Bitte in Tampermonkey **„Reale Standorte“ und „BOS Ausbauplaner“ deaktivieren**, bevor Du den BOS Manager aktiv nutzt. Die alten Downloads bleiben für bestehende Installationen erhalten. Die **Verbandsfreigabe** bleibt ein eigenständiges Script.
 
@@ -31,7 +31,7 @@ Vergleicht reale BOS-Standorte mit den eigenen Gebäuden im Leitstellenspiel. Ei
 
 Erkennt eigene Einsätze ab einer einstellbaren durchschnittlichen Creditvergütung und bietet die gezielte Freigabe für den Verband.
 
-**Aktuelle Version:** 0.1.1 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Verbandsfreigabe.user.js)
+**Aktuelle Version:** 0.1.2 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Verbandsfreigabe.user.js)
 
 Die Addons unterstützen automatische Updates über Tampermonkey.
 
