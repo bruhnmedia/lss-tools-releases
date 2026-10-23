@@ -1,0 +1,41 @@
+name: BRUHN MEDIA - Discord Versionsupdates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.user.js'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discord-version-updates-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  discord-notification:
+    name: Neue Scriptversionen melden
+    if: github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Repository abrufen
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Node.js vorbereiten
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Discord informieren (nur bei neuer Versionsnummer)
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: node .github/scripts/notify-discord.mjs
