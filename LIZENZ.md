@@ -20,7 +20,3 @@ Diese Bedingungen gelten nur für die eigenen, entsprechend schutzfähigen Besta
 Dies ist eine proprietäre Nutzungserlaubnis und **keine Open-Source-Lizenz**. Sichtbarkeit auf GitHub begründet keine darüber hinausgehende Erlaubnis; GitHub-Plattformfunktionen und die Nutzungsbedingungen von GitHub bleiben unberührt.
 
 Kontakt für weitergehende Nutzungserlaubnisse: https://www.bruhn-media.de/
-
-## Hinweis
-
-Ein Browser-Userscript kann technisch nicht vollständig gegen Einsichtnahme, Kopieren oder Änderungen geschützt werden. Diese Lizenz regelt die gestattete Nutzung; sie ist kein technischer DRM-Kopierschutz. Einzelfall- und Durchsetzbarkeitsfragen sollten bei Bedarf juristisch geprüft werden.
