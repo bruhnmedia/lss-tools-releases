@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BRUHN MEDIA | LSS – BOS Manager
 // @namespace    https://github.com/bruhnmedia/lss-tools-releases
-// @version      1.0.1
+// @version      1.0.0
 // @description  Vereint reale BOS-Standorte in Niedersachsen und einen Vergleich mit eigenen Spielgebäuden in einem Werkzeug.
 // @author       BRUHN MEDIA
 // @match        https://www.leitstellenspiel.de/*
