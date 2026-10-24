@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         BRUHN MEDIA | LSS – Tools Manager
 // @namespace    https://github.com/bruhnmedia/lss-tools-releases
-// @version      1.2.0
-// @description  BRUHN MEDIA | Sieben modulare Tools für Leitstellenspiel.de.
+// @version      1.2.1
+// @description  BRUHN MEDIA | Modulare Tools für BOS-Ausbau, Verband, Fuhrpark, Dashboard und Karte.
 // @author       BRUHN MEDIA
 // @match        https://www.leitstellenspiel.de/*
 // @match        https://leitstellenspiel.de/*

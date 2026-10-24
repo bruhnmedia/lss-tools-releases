@@ -4,6 +4,10 @@ Die Discord-Benachrichtigungen werden aus diesen deutschen Versionshinweisen ers
 Für jede öffentliche neue Tools-Manager-Version wird ein eigener Abschnitt ergänzt.
 Englische Git-Commit-Titel werden nicht automatisch in Discord übernommen.
 
+## 1.2.1
+- Die Kartensteuerung bietet einen zusätzlichen Zielkreuz-Button, der gespeicherte Kartenposition und Zoom direkt und ohne Benachrichtigung wiederherstellt.
+- Karten-Layouts: Die Seitenleiste zeigt verlässliche SVG-Symbole, verdeckt geöffnete Einsätze nicht und die vier Spalten nutzen die verfügbare Fensterhöhe.
+
 ## 1.2.0
 - Dashboard, Verbandsverwaltung und Kartensteuerung offiziell veröffentlicht.
 - Der BRUHN MEDIA Appstore enthält jetzt alle sieben Module.

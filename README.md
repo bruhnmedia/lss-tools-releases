@@ -4,7 +4,7 @@
 
 ## BRUHN MEDIA | Tools Manager
 
-**Aktuelle Version: 1.2.0**
+**Aktuelle Version: 1.2.1**
 
 **[Tools Manager für Tampermonkey installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Tools_Manager.user.js)**
 
@@ -15,8 +15,8 @@ Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und sieben unabhän
 - **Fuhrpark-TÜV:** Überblick über Fahrzeuge, Personalzuweisungen, Sonderausbildungen und den **theoretischen** Ausbildungsbedarf an Wachen. Die Angaben beweisen nicht die tatsächliche Einsatzbereitschaft.
 - **Dashboard:** Auswertungen über Gebäude, Fahrzeuge und Wachen – unter anderem nach Typ, Fahrzeugstatus und Wachenplanung.
 - **Verbandsverwaltung:** Einblick in Verbandsmitglieder und Verbandsstatistiken einschließlich der vom Spiel bereitgestellten Credits und Verlaufsauswertungen.
-- **Kartensteuerung:** Die Karte beim Spielstart dynamisch zentrieren oder eine selbst gewählte Kartenposition speichern und wiederherstellen.
-- **Karten-Layouts:** Fünf wählbare Desktop-Ansichten für Karte, Einsätze, Wachen, Chat und Funk: Standard, große Karte mit Seitenleiste, Karte oben, Vier-Spalten-Ansicht sowie kompakte Karte links. Die gewählte Ansicht wird gespeichert. In der Seitenleiste lassen sich Bereiche per SVG-Icon wechseln; Listen sind bei Bedarf separat scrollbar.
+- **Kartensteuerung:** Die Karte beim Spielstart dynamisch zentrieren oder eine selbst gewählte Kartenposition speichern und wiederherstellen. Ein zusätzlicher Zielkreuz-Button direkt an der Karte stellt die gespeicherte Position und den Zoom ohne Einblendungen wieder her.
+- **Karten-Layouts:** Fünf wählbare Desktop-Ansichten für Karte, Einsätze, Wachen, Chat und Funk: Standard, große Karte mit Seitenleiste, Karte oben, Vier-Spalten-Ansicht sowie kompakte Karte links. Die gewählte Ansicht wird gespeichert. In der Seitenleiste lassen sich Bereiche über eigenständige SVG-Icons wechseln; Listen nutzen die verfügbare Höhe und sind bei Bedarf separat scrollbar. Die Seitenleiste bleibt hinter geöffneten Einsatzfenstern.
 
 ### Installation und Bedienung
 
