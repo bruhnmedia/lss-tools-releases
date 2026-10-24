@@ -1,0 +1,34 @@
+name: BRUHN MEDIA | Discord Vorlagenprüfung
+
+on:
+  pull_request:
+    paths:
+      - '.github/scripts/notify-discord.mjs'
+      - '.github/scripts/test-discord-notify.mjs'
+      - '.github/workflows/discord-format-check.yml'
+  push:
+    branches: [main]
+    paths:
+      - '.github/scripts/notify-discord.mjs'
+      - '.github/scripts/test-discord-notify.mjs'
+      - '.github/workflows/discord-format-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Discord-Vorlage offline prüfen
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Syntax prüfen
+        run: node --check .github/scripts/notify-discord.mjs
+      - name: Vorlagen testen (ohne Webhook)
+        env:
+          REPOSITORY: bruhnmedia/lss-tools-releases
+        run: node --test .github/scripts/test-discord-notify.mjs
