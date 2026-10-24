@@ -116,7 +116,10 @@ function cardFor(item, titles = []) {
   if (!/^[A-Za-z0-9_+-]+\.user\.js$/.test(item.file)) throw new Error('Ungueltiger Scriptname');
   const raw = 'https://raw.githubusercontent.com/' + repo + '/main/' + encodeURIComponent(item.file);
   const changes = 'https://github.com/' + repo + '/commits/main/' + encodeURIComponent(item.file);
-  const headline = inlineText(item.name, 165).replace(/^BRUHN MEDIA\s*\|\s*LSS\s*[–—-]\s*/, 'BRUHN MEDIA | LSS ');
+  // Einheitlicher Produktname; der Dateiname und die Userscript-Metadaten bleiben unverändert.
+  const headline = item.file === 'BRUHN_MEDIA_LSS_Tools_Manager.user.js'
+    ? 'BRUHN MEDIA | Tools Manager'
+    : inlineText(item.name, 165);
   const notes = titles.length ? titles.slice(0, 2).map(t => '• ' + inlineText(t, 170)).join('\n') :
     'Neue Version veröffentlicht. Weitere Details findest Du im GitHub-Änderungsverlauf.';
   const tick = String.fromCharCode(96);
