@@ -1,4 +1,4 @@
-# BRUHN MEDIA · LSS Tools
+# BRUHN MEDIA | LSS Tools
 
 **MADE TO WORK.** · Unabhängige Tools für [Leitstellenspiel.de](https://www.leitstellenspiel.de/).
 
@@ -37,7 +37,7 @@ Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und drei unabhängi
 
 ## Rechte und Datenbasis
 
-© 2026 BRUHN MEDIA. Nutzung gemäß [LIZENZ.md](LIZENZ.md).
+© 2026 BRUHN MEDIA | Nutzung gemäß [LIZENZ.md](LIZENZ.md).
 
 Standortdaten © OpenStreetMap-Mitwirkende, [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/). Die OSM-Daten können unvollständig oder veraltet sein.
 
