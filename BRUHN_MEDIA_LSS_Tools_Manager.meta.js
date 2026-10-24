@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         BRUHN MEDIA | LSS – Tools Manager
 // @namespace    https://github.com/bruhnmedia/lss-tools-releases
-// @version      1.1.0
-// @description  BRUHN MEDIA Appstore mit BOS Ausbauplaner, Verbandsfreigabe, Fuhrpark-TÜV und Karten-Layouts.
+// @version      1.2.0
+// @description  BRUHN MEDIA | Sieben modulare Tools für Leitstellenspiel.de.
 // @author       BRUHN MEDIA
 // @match        https://www.leitstellenspiel.de/*
 // @match        https://leitstellenspiel.de/*
