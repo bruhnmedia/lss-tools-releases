@@ -4,7 +4,7 @@ Copyright-Hinweis © 2026 BRUHN MEDIA. Alle Rechte an den eigenen, schutzfähige
 
 ## Erlaubte Nutzung
 
-Die von BRUHN MEDIA veröffentlichten Tampermonkey-Addons „LSS – Reale Standorte“ und „LSS – BOS Ausbauplaner“ dürfen für private, nicht-kommerzielle Nutzung heruntergeladen, installiert und ausgeführt werden. Technisch notwendige Kopien zur bestimmungsgemäßen Nutzung sind eingeschlossen.
+Die von BRUHN MEDIA veröffentlichten LSS-Tampermonkey-Addons, insbesondere der „BRUHN MEDIA Tools Manager“, dürfen für private, nicht-kommerzielle Nutzung heruntergeladen, installiert und ausgeführt werden. Technisch notwendige Kopien zur bestimmungsgemäßen Nutzung sind eingeschlossen.
 
 ## Nicht gestattete Nutzung ohne vorherige ausdrückliche Erlaubnis
 
