@@ -2,38 +2,36 @@
 
 **Unabhängige Erweiterungen für Leitstellenspiel.de.**
 
-BRUHN MEDIA entwickelt praxisorientierte Tools für eine übersichtliche Kartenansicht und den realitätsnahen Ausbau von Leitstellen und Einsatzorganisationen.
+BRUHN MEDIA entwickelt praxisorientierte Hilfsmittel für den realitätsnahen Ausbau, die Verbandsarbeit und die Verwaltung von Fahrzeugen, Personal und Ausbildungen.
 
-## Addons
+## Empfohlen: BRUHN MEDIA Tools Manager
 
-### LSS – BOS Manager (empfohlen)
+**Aktuelle Version: 1.0.0** · [Tools Manager installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Tools_Manager.user.js)
 
-Vereint **Reale Standorte** und **BOS Ausbauplaner** in einem Script: Organisationsfilter, intelligente Standort-Gruppierung und Vergleich mit den eigenen Gebäuden inklusive Zuordnungsstatus und Suchradius. Die Standortdaten beziehen sich auf Niedersachsen.
+**Ein Tampermonkey-Script, drei einzeln schaltbare Module:**
 
-**Aktuelle Version:** 1.0.1 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_BOS_Manager.user.js)
+- **BOS Ausbauplaner:** Vergleicht reale Standorte in **Niedersachsen** mit eigenen Gebäuden. Einschließlich Zuordnungsstatus, Suchradius und Referenzhinweis zur Feuerwehr Ihlienworth. Ein separater „Reale Standorte“-Tab ist nicht enthalten.
+- **Verbandsfreigabe:** Hilft beim gezielten Freigeben geeigneter Einsätze und merkt sich erfolgreich angeforderte Freigaben nach dem Neuladen.
+- **Fuhrpark-TÜV:** Untersucht Fahrzeuge, Personalzuweisungen, Sonderausbildungen und den rechnerischen Ausbildungsbedarf an Wachen.
 
-**Hinweis:** Der BOS Manager ersetzt funktional die beiden bisherigen Einzel-Scripts. Bitte in Tampermonkey **„Reale Standorte“ und „BOS Ausbauplaner“ deaktivieren**, bevor Du den BOS Manager aktiv nutzt. Die alten Downloads bleiben für bestehende Installationen erhalten. Die **Verbandsfreigabe** bleibt ein eigenständiges Script.
+Die Module lassen sich über **BRUHN MEDIA → Appstore · Tools verwalten** aktivieren und deaktivieren. Die Änderungen werden beim Neuladen der Spielseite angewendet.
 
----
-### LSS – Reale Standorte
+**Wichtig für den Umstieg:** Bitte die bisherigen eigenständigen BRUHN-MEDIA-Scripts in Tampermonkey deaktivieren. Werden dieselben Funktionen parallel ausgeführt, kann es zu doppelten Menüs, Markern oder Verarbeitungsvorgängen kommen. Einstellungen und lokale Freigabevermerke aus älteren, getrennten Installationen werden nicht automatisch übernommen.
 
-Zeigt reale BOS-Standorte in Niedersachsen direkt auf der Spielkarte. Mit Organisationsfiltern, Standortinformationen und intelligenter Marker-Gruppierung.
+Automatische Updates erfolgen über Tampermonkey anhand der im Script hinterlegten Update-URLs.
 
-**Aktuelle Version:** 2.4.2 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/LSS_Reale_Standorte.user.js)
+## Frühere Einzel-Scripts (Legacy)
 
-### LSS – BOS Ausbauplaner
+Diese Dateien bleiben vorerst **nur für bestehende Installationen und deren Update-URLs** verfügbar. **Nicht zusätzlich zum neuen Tools Manager aktivieren.**
 
-Vergleicht reale BOS-Standorte mit den eigenen Gebäuden im Leitstellenspiel. Eine visuelle Planungshilfe zur Erkennung möglicher Ausbaupotenziale.
+| Früheres Script | Letzte bisherige Version |
+| --- | --- |
+| [BOS Manager](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_BOS_Manager.user.js) – Reale Standorte und Ausbauplaner in einem älteren Script | 1.0.1 |
+| [BOS Ausbauplaner](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_BOS_Ausbauplaner.user.js) – eigenständige Version | 1.2.2 |
+| [Reale Standorte](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/LSS_Reale_Standorte.user.js) – eigenständige Kartenanzeige | 2.4.2 |
+| [Verbandsfreigabe](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Verbandsfreigabe.user.js) – eigenständige Version | 0.1.2 |
 
-**Aktuelle Version:** 1.2.2 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_BOS_Ausbauplaner.user.js)
-
-### LSS – Verbandsfreigabe
-
-Erkennt eigene Einsätze ab einer einstellbaren durchschnittlichen Creditvergütung und bietet die gezielte Freigabe für den Verband.
-
-**Aktuelle Version:** 0.1.2 · [Installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Verbandsfreigabe.user.js)
-
-Die Addons unterstützen automatische Updates über Tampermonkey.
+Die Dateien mit der Endung `.user.js` sind installierbare Scripts. Die zugehörigen `.meta.js`-Dateien sind **keine Duplikate**, sondern dienen der Versions- und Update-Prüfung durch Tampermonkey.
 
 ## Rechte und Datenbasis
 
@@ -41,4 +39,6 @@ Die Addons unterstützen automatische Updates über Tampermonkey.
 
 Standortdaten: © OpenStreetMap-Mitwirkende, [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/).
 
-Diese Erweiterungen sind unabhängig entwickelt und stehen in keiner offiziellen Verbindung zu Leitstellenspiel.de oder den dargestellten Organisationen. Standortdaten können unvollständig oder veraltet sein.
+Diese Erweiterungen wurden unabhängig entwickelt und stehen in keiner offiziellen Verbindung zu Leitstellenspiel.de oder den dargestellten Organisationen. Standortdaten können unvollständig oder veraltet sein.
+
+**BRUHN MEDIA – MADE TO WORK.**
