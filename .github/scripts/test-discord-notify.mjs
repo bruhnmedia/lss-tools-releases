@@ -40,7 +40,7 @@ test('Karte hat BRUHN MEDIA Farbwert, Versionsdaten und funktionierende Link-But
   const card = cardFor(item, ['Verbandsfreigabe verbessert']);
   assert.equal(card.type, 17);
   assert.equal(card.accent_color, 0xD93030);
-  assert.match(card.components[0].components[0].content, /^## BRUHN MEDIA \\| Tools Manager\\n/);
+  assert.match(card.components[0].components[0].content, /^## BRUHN MEDIA \| Tools Manager\n/);
   assert.doesNotMatch(card.components[0].components[0].content, /LSS Tools Manager/);
   assert.match(card.components[2].content, /1\.0\.2.*1\.0\.1/);
   assert.match(card.components[4].content, /Verbandsfreigabe verbessert/);
@@ -52,12 +52,12 @@ test('Karte hat BRUHN MEDIA Farbwert, Versionsdaten und funktionierende Link-But
 });
 test('Andere Userscripts behalten ihre eigene Bezeichnung', () => {
   const card = cardFor({ ...item, file:'Andere_Hilfe.user.js', name:'Andere Hilfe' }, []);
-  assert.match(card.components[0].components[0].content, /^## Andere Hilfe\\n/);
+  assert.match(card.components[0].components[0].content, /^## Andere Hilfe\n/);
 });
 test('Alter und neuer Tools-Manager-Name erscheinen im Discord einheitlich', () => {
   for (const name of ['BRUHN MEDIA | LSS – Tools Manager', 'BRUHN MEDIA | Tools Manager']) {
     const card = cardFor({...item, name}, []);
-    assert.match(card.components[0].components[0].content, /^## BRUHN MEDIA \\| Tools Manager\\n/);
+    assert.match(card.components[0].components[0].content, /^## BRUHN MEDIA \| Tools Manager\n/);
   }
 });
 
