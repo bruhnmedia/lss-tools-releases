@@ -4,7 +4,7 @@
 
 ## BRUHN MEDIA | Tools Manager
 
-**Aktuelle Version: 1.0.1**
+**Aktuelle Version: 1.0.2**
 
 **[Tools Manager für Tampermonkey installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Tools_Manager.user.js)**
 
