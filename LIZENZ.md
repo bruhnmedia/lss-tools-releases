@@ -1,6 +1,6 @@
-# BRUHN MEDIA – Nutzungslizenz für LSS-Addons
+# BRUHN MEDIA | Nutzungslizenz für LSS Tools
 
-Copyright-Hinweis © 2026 BRUHN MEDIA. Alle Rechte an den eigenen, schutzfähigen Programmteilen vorbehalten.
+© 2026 BRUHN MEDIA | Alle Rechte vorbehalten.
 
 ## Erlaubte Nutzung
 
