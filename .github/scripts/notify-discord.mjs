@@ -155,7 +155,7 @@ function testCard() {
 function releasePayload(items, changesFor = releaseNotes) {
   return {
     username: 'BRUHN MEDIA | GitHub Updates', avatar_url: BRAND_AVATAR,
-    flags: 32768, components: items.slice(0, 10).map(item => cardFor(item, changesFor(item.file))),
+    flags: 32768, components: items.slice(0, 10).map(item => cardFor(item, changesFor(item))),
     allowed_mentions: { parse: [] }
   };
 }
