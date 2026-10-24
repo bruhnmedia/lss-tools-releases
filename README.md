@@ -1,10 +1,10 @@
 # BRUHN MEDIA | LSS Tools
 
-**MADE TO WORK.** · Unabhängige Tools für [Leitstellenspiel.de](https://www.leitstellenspiel.de/).
+**MADE TO WORK.** | Unabhängige Tools für [Leitstellenspiel.de](https://www.leitstellenspiel.de/).
 
-## BRUHN MEDIA Tools Manager
+## BRUHN MEDIA | Tools Manager
 
-**Aktuelle Version: 1.0.0**
+**Aktuelle Version: 1.0.1**
 
 **[Tools Manager für Tampermonkey installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Tools_Manager.user.js)**
 
@@ -37,10 +37,12 @@ Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und drei unabhängi
 
 ## Rechte und Datenbasis
 
-© 2026 BRUHN MEDIA | Nutzung gemäß [LIZENZ.md](LIZENZ.md).
+© 2026 BRUHN MEDIA | Alle Rechte vorbehalten.
+
+Nutzung gemäß [LIZENZ.md](LIZENZ.md).
 
 Standortdaten © OpenStreetMap-Mitwirkende, [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/). Die OSM-Daten können unvollständig oder veraltet sein.
 
 Unabhängiges Projekt, keine offizielle Verbindung zu Leitstellenspiel.de oder den dargestellten Hilfsorganisationen.
 
-**BRUHN MEDIA – MADE TO WORK.**
+**BRUHN MEDIA | MADE TO WORK.**
