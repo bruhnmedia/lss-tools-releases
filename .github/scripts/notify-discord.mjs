@@ -2,13 +2,13 @@
 /*
  * BRUHN MEDIA | Discord Versionsupdates
  * © 2026 BRUHN MEDIA | Alle Rechte vorbehalten.
- * Runs without external packages. Never print the webhook URL or token.
- * Push: announce ONLY new @version values in root *.user.js files.
- * workflow_dispatch: send a clearly labelled TEST message.
+ * Läuft ohne externe Pakete. Webhook-Adresse und Token niemals ausgeben.
+ * Push: Nur neue @version-Werte in *.user.js im Stammverzeichnis melden.
+ * workflow_dispatch: ausdrücklich gekennzeichnete TEST-Nachricht senden.
  */
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const repo = process.env.REPOSITORY || '';
@@ -81,16 +81,35 @@ function inlineText(value, max = 180) {
 function safeVersion(value) {
   return inlineText(value || 'Erstveröffentlichung', 40).replace(/[^a-zA-Z0-9.+_-]/g, '');
 }
-function filterCommitTitles(titles) {
-  const descriptions = titles.map(t => inlineText(t, 180)).filter(Boolean)
-    .filter(t => !/^(?:add files via upload|update files?|updated? .*\.user\.js|merge pull request #\d+)$/i.test(t));
-  return descriptions.slice(0, 2);
+// Release-Hinweise werden ausschließlich aus der redaktionell gepflegten
+// deutschen Datei übernommen – niemals automatisch aus Git-Commit-Titeln.
+function parseReleaseNotes(source, version) {
+  let inside = false;
+  const notes = [];
+  for (const line of String(source).split(/\r?\n/)) {
+    const heading = /^##\s+(.+?)\s*$/.exec(line);
+    if (heading) {
+      if (inside) break;
+      inside = heading[1] === version;
+      continue;
+    }
+    if (!inside) continue;
+    const bullet = /^[-*]\s+(.+)/.exec(line.trim());
+    if (bullet) {
+      const note = inlineText(bullet[1], 170);
+      if (note) notes.push(note);
+      if (notes.length >= 2) break;
+    }
+  }
+  return notes;
 }
-function recentChanges(file) {
+function releaseNotes(item) {
   try {
-    const range = isExistingCommit(before) ? before + '..' + after : after;
-    return filterCommitTitles(git(['log', '-8', '--format=%s', range, '--', file]).split('\n'));
-  } catch { return []; }
+    const path = resolve(dirname(fileURLToPath(import.meta.url)), '../../RELEASE_NOTES.md');
+    return parseReleaseNotes(readFileSync(path, 'utf8'), item.version);
+  } catch {
+    return [];
+  }
 }
 function cardFor(item, titles = []) {
   if (!/^[-\w]+\/[-.\w]+$/.test(repo)) throw new Error('Ungueltiger Repositoryname');
@@ -99,7 +118,7 @@ function cardFor(item, titles = []) {
   const changes = 'https://github.com/' + repo + '/commits/main/' + encodeURIComponent(item.file);
   const headline = inlineText(item.name, 165).replace(/^BRUHN MEDIA\s*\|\s*LSS\s*[–—-]\s*/, 'BRUHN MEDIA | LSS ');
   const notes = titles.length ? titles.slice(0, 2).map(t => '• ' + inlineText(t, 170)).join('\n') :
-    'Die Details findest Du im GitHub-Änderungsverlauf.';
+    'Neue Version veröffentlicht. Weitere Details findest Du im GitHub-Änderungsverlauf.';
   const tick = String.fromCharCode(96);
   return {
     type: 17, accent_color: BRAND_RED, components: [
@@ -133,10 +152,10 @@ function testCard() {
     ]
   };
 }
-function releasePayload(items, changesFor = recentChanges) {
+function releasePayload(items, changesFor = releaseNotes) {
   return {
     username: 'BRUHN MEDIA | GitHub Updates', avatar_url: BRAND_AVATAR,
-    flags: 32768, components: items.slice(0, 10).map(item => cardFor(item, changesFor(item.file))),
+    flags: 32768, components: items.slice(0, 10).map(item => cardFor(item, changesFor(item))),
     allowed_mentions: { parse: [] }
   };
 }
@@ -175,7 +194,7 @@ async function main() {
 }
 
 // Offline-Tests importieren diese Bausteine, ohne Webhook-Nachrichten auszulösen.
-export { getMetadata, filterCommitTitles, cardFor, releasePayload, testPayload, validateWebhook };
+export { getMetadata, parseReleaseNotes, cardFor, releasePayload, testPayload, validateWebhook };
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   main().catch(error => { console.error('Benachrichtigung fehlgeschlagen: ' + error.message); process.exitCode = 1; });
 }

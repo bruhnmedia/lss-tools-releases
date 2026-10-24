@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getMetadata, filterCommitTitles, cardFor, releasePayload, testPayload, validateWebhook } from './notify-discord.mjs';
+import { readFileSync } from 'node:fs';
+import { getMetadata, parseReleaseNotes, cardFor, releasePayload, testPayload, validateWebhook } from './notify-discord.mjs';
 
 const item = {
   file: 'BRUHN_MEDIA_LSS_Tools_Manager.user.js',
@@ -11,9 +12,29 @@ const item = {
 test('Metadaten werden erkannt', () => {
   assert.equal(getMetadata('// @version      1.0.2\n', 'version'), '1.0.2');
 });
-test('Generische Upload-Titel werden nicht als Release-Notizen ausgegeben', () => {
-  assert.deepEqual(filterCommitTitles(['Add files via upload', 'Verbandsfreigabe verbessert']), ['Verbandsfreigabe verbessert']);
-  assert.deepEqual(filterCommitTitles(['Add files via upload']), []);
+test('Deutsche Release-Notizen werden versionsgenau aus der gepflegten Datei gelesen', () => {
+  const notes = readFileSync(new URL('../../RELEASE_NOTES.md', import.meta.url), 'utf8');
+  assert.deepEqual(parseReleaseNotes(notes, '1.2.0'), [
+    'Dashboard, Verbandsverwaltung und Kartensteuerung offiziell veröffentlicht.',
+    'Der BRUHN MEDIA Appstore enthält jetzt alle sieben Module.'
+  ]);
+  assert.deepEqual(parseReleaseNotes(notes, '1.2.1'), []);
+  assert.deepEqual(parseReleaseNotes(notes, '1.1.0'), [
+    'Das Modul Karten-Layouts mit fünf verschiedenen Ansichten veröffentlicht.',
+    'Volle Fensterhöhe, Scrollbereiche und Seitenleisten-Icons verbessert.'
+  ]);
+});
+test('Discord-Ankündigungen übernehmen keine englischen Commit-Titel', () => {
+  const payload = releasePayload([{...item, version:'1.2.0'}]);
+  const notes = payload.components[0].components[4].content;
+  assert.match(notes, /offiziell veröffentlicht/);
+  assert.match(notes, /alle sieben Module/);
+  assert.doesNotMatch(notes, /seven tested modules|release:|publish/i);
+});
+test('Fehlen Release-Notizen, erscheint nur ein deutscher Standardtext', () => {
+  const card = cardFor(item, []);
+  assert.match(card.components[4].content, /Neue Version veröffentlicht/);
+  assert.doesNotMatch(card.components[4].content, /seven tested modules/i);
 });
 test('Karte hat BRUHN MEDIA Farbwert, Versionsdaten und funktionierende Link-Buttons', () => {
   const card = cardFor(item, ['Verbandsfreigabe verbessert']);
