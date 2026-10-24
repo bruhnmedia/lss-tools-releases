@@ -84,7 +84,7 @@ function embedFor(item) {
     '**Vorher:** ' + safeSummary(item.oldVersion || 'Erstveröffentlichung', 48) + '\n' +
     '**Änderungen (Commit-Titel):**\n' + recentChanges(item.file);
   return {
-    title: '🚀 ' + safeSummary(item.name, 190),
+    title: safeSummary(item.name, 190),
     description,
     url: changes,
     color: 0xD93030,
@@ -92,15 +92,15 @@ function embedFor(item) {
       { name: '📥 Download / Tampermonkey', value: '[Userscript installieren](' + raw + ')', inline: true },
       { name: '📝 Änderungsverlauf', value: '[Änderungen ansehen](' + changes + ')', inline: true },
     ],
-    footer: { text: 'BRUHN MEDIA · Automatische GitHub-Versionsmeldung' },
+    footer: { text: 'BRUHN MEDIA | Automatische GitHub-Versionsmeldung' },
   };
 }
 async function send(embeds, test = false) {
   const endpoint = validateWebhook(hook);
   const payload = {
-    username: 'BRUHN MEDIA · GitHub Updates',
+    username: 'BRUHN MEDIA | GitHub Updates',
     content: test ? '🧪 **TEST** · GitHub → Discord ist verbunden.' :
-      '🚀 **BRUHN MEDIA** · Neue Userscript-Version veröffentlicht!',
+      'BRUHN MEDIA | Neue Scriptversion veröffentlicht',
     embeds,
     allowed_mentions: { parse: [] },
   };
@@ -116,7 +116,7 @@ async function send(embeds, test = false) {
 async function main() {
   if (!/^[-\w]+\/[-.\w]+$/.test(repo)) throw new Error('Ungueltiger Repositoryname');
   if (eventName === 'workflow_dispatch') {
-    return send([{ title: '✅ BRUHN MEDIA · Verbindungstest', color: 0x2EA043,
+    return send([{ title: 'BRUHN MEDIA | Verbindungstest', color: 0x2EA043,
       description: 'Die automatische GitHub-Updatebenachrichtigung ist eingerichtet. ' +
         'Dies ist **kein** neues Release.' }], true);
   }
