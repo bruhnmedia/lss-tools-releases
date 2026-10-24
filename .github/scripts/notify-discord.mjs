@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 /*
- * BRUHN MEDIA | Discord Release Notifications
+ * BRUHN MEDIA | Discord Versionsupdates
+ * © 2026 BRUHN MEDIA | Alle Rechte vorbehalten.
  * Runs without external packages. Never print the webhook URL or token.
  * Push: announce ONLY new @version values in root *.user.js files.
  * workflow_dispatch: send a clearly labelled TEST message.
  */
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const repo = process.env.REPOSITORY || '';
 const eventName = process.env.EVENT_NAME || '';
@@ -65,61 +68,99 @@ function updatedScripts() {
     }];
   });
 }
+// Discord Components V2: echte Karte, rote Akzentleiste und Link-Buttons.
+// Anders als Bildmockups bleiben Text, Links und Versionen dynamisch.
+const BRAND_RED = 0xD93030;
+const BRAND_AVATAR = 'https://github.com/bruhnmedia.png';
+const BRAND_FOOTER = '© 2026 BRUHN MEDIA | Alle Rechte vorbehalten.';
+
+function inlineText(value, max = 180) {
+  return String(value).replace(/[\r\n\t]+/g, ' ').replace(/[@*_~\u0060\[\]<>]/g, '')
+    .replace(/\s+/g, ' ').trim().slice(0, max);
+}
+function safeVersion(value) {
+  return inlineText(value || 'Erstveröffentlichung', 40).replace(/[^a-zA-Z0-9.+_-]/g, '');
+}
+function filterCommitTitles(titles) {
+  const descriptions = titles.map(t => inlineText(t, 180)).filter(Boolean)
+    .filter(t => !/^(?:add files via upload|update files?|updated? .*\.user\.js|merge pull request #\d+)$/i.test(t));
+  return descriptions.slice(0, 2);
+}
 function recentChanges(file) {
   try {
     const range = isExistingCommit(before) ? before + '..' + after : after;
-    const titles = git(['log', '-5', '--format=%s', range, '--', file])
-      .split('\n').filter(Boolean).slice(0, 3);
-    return titles.length ? titles.map(title => '• ' + safeSummary(title, 160)).join('\n')
-      : 'Weitere Details im Commit-Verlauf';
-  } catch {
-    return 'Weitere Details im Commit-Verlauf';
-  }
+    return filterCommitTitles(git(['log', '-8', '--format=%s', range, '--', file]).split('\n'));
+  } catch { return []; }
 }
-function embedFor(item) {
+function cardFor(item, titles = []) {
+  if (!/^[-\w]+\/[-.\w]+$/.test(repo)) throw new Error('Ungueltiger Repositoryname');
+  if (!/^[A-Za-z0-9_+-]+\.user\.js$/.test(item.file)) throw new Error('Ungueltiger Scriptname');
   const raw = 'https://raw.githubusercontent.com/' + repo + '/main/' + encodeURIComponent(item.file);
   const changes = 'https://github.com/' + repo + '/commits/main/' + encodeURIComponent(item.file);
-  const description = 'Eine neue Version ist jetzt verfügbar.\n\n' +
-    '**Version:** ' + safeSummary(item.version, 48) + '\n' +
-    '**Vorher:** ' + safeSummary(item.oldVersion || 'Erstveröffentlichung', 48) + '\n' +
-    '**Änderungen (Commit-Titel):**\n' + recentChanges(item.file);
+  const headline = inlineText(item.name, 165).replace(/^BRUHN MEDIA\s*\|\s*LSS\s*[–—-]\s*/, 'BRUHN MEDIA | LSS ');
+  const notes = titles.length ? titles.slice(0, 2).map(t => '• ' + inlineText(t, 170)).join('\n') :
+    'Die Details findest Du im GitHub-Änderungsverlauf.';
+  const tick = String.fromCharCode(96);
   return {
-    title: safeSummary(item.name, 190),
-    description,
-    url: changes,
-    color: 0xD93030,
-    fields: [
-      { name: '📥 Download / Tampermonkey', value: '[Userscript installieren](' + raw + ')', inline: true },
-      { name: '📝 Änderungsverlauf', value: '[Änderungen ansehen](' + changes + ')', inline: true },
-    ],
-    footer: { text: 'BRUHN MEDIA | Automatische GitHub-Versionsmeldung' },
+    type: 17, accent_color: BRAND_RED, components: [
+      { type: 9, components: [
+        { type: 10, content: '## ' + headline + '\nEine neue Version ist verfügbar.' }
+      ], accessory: { type: 11, media: { url: BRAND_AVATAR }, description: 'BRUHN MEDIA Logo' } },
+      { type: 14, divider: true, spacing: 1 },
+      { type: 10, content: '**Version**  ' + tick + safeVersion(item.version) + tick +
+          '  |  **Vorher**  ' + tick + safeVersion(item.oldVersion) + tick },
+      { type: 14, divider: false, spacing: 1 },
+      { type: 10, content: '**Änderungen**\n' + notes },
+      { type: 1, components: [
+        { type: 2, style: 5, label: 'Userscript installieren', url: raw },
+        { type: 2, style: 5, label: 'Änderungen ansehen', url: changes },
+      ] },
+      { type: 14, divider: true, spacing: 1 },
+      { type: 10, content: '-# ' + BRAND_FOOTER }
+    ]
   };
 }
-async function send(embeds, test = false) {
-  const endpoint = validateWebhook(hook);
-  const payload = {
-    username: 'BRUHN MEDIA | GitHub Updates',
-    content: test ? '🧪 **TEST** · GitHub → Discord ist verbunden.' :
-      'BRUHN MEDIA | Neue Scriptversion veröffentlicht',
-    embeds,
-    allowed_mentions: { parse: [] },
+function testCard() {
+  return {
+    type: 17, accent_color: BRAND_RED, components: [
+      { type: 9, components: [{ type: 10,
+        content: '## BRUHN MEDIA | Verbindungstest\nDie GitHub-Discord-Verbindung funktioniert.\n**Dies ist keine neue Veröffentlichung.**'
+      }], accessory: { type: 11, media: { url: BRAND_AVATAR }, description: 'BRUHN MEDIA Logo' } },
+      { type: 14, divider: true, spacing: 1 },
+      { type: 1, components: [{ type: 2, style: 5,
+        label: 'GitHub-Repository öffnen', url: 'https://github.com/' + repo }] },
+      { type: 10, content: '-# ' + BRAND_FOOTER }
+    ]
   };
+}
+function releasePayload(items, changesFor = recentChanges) {
+  return {
+    username: 'BRUHN MEDIA | GitHub Updates', avatar_url: BRAND_AVATAR,
+    flags: 32768, components: items.slice(0, 10).map(item => cardFor(item, changesFor(item.file))),
+    allowed_mentions: { parse: [] }
+  };
+}
+function testPayload() {
+  if (!/^[-\w]+\/[-.\w]+$/.test(repo)) throw new Error('Ungueltiger Repositoryname');
+  return {
+    username: 'BRUHN MEDIA | GitHub Updates', avatar_url: BRAND_AVATAR,
+    flags: 32768, components: [testCard()], allowed_mentions: { parse: [] }
+  };
+}
+async function send(payload, test = false) {
+  // wait=true bestaetigt, dass Discord die Nachricht wirklich gespeichert hat.
+  // with_components=true ist auch bei normalen Webhooks fuer Link-Buttons noetig.
+  const endpoint = validateWebhook(hook) + '?with_components=true&wait=true';
   const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-    signal: AbortSignal.timeout(15000),
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload), signal: AbortSignal.timeout(15000)
   });
   if (!response.ok) throw new Error('Discord antwortet mit HTTP ' + response.status);
-  console.log(test ? 'Discord-Testnachricht zugestellt.' : 'Versionsmeldung an Discord zugestellt.');
+  console.log(test ? 'Discord-Verbindungstest zugestellt.' : 'Versionsmeldung an Discord zugestellt.');
 }
 async function main() {
   if (!/^[-\w]+\/[-.\w]+$/.test(repo)) throw new Error('Ungueltiger Repositoryname');
-  if (eventName === 'workflow_dispatch') {
-    return send([{ title: 'BRUHN MEDIA | Verbindungstest', color: 0x2EA043,
-      description: 'Die automatische GitHub-Updatebenachrichtigung ist eingerichtet. ' +
-        'Dies ist **kein** neues Release.' }], true);
-  }
+  if (eventName === 'workflow_dispatch') return send(testPayload(), true);
   if (eventName !== 'push') {
     console.log('Kein Push-Ereignis; Benachrichtigung uebersprungen.');
     return;
@@ -130,6 +171,11 @@ async function main() {
     return;
   }
   console.log('Neue Versionen erkannt: ' + items.map(x => x.file + ' ' + x.version).join(', '));
-  await send(items.slice(0, 10).map(embedFor));
+  await send(releasePayload(items));
 }
-main().catch(error => { console.error('Benachrichtigung fehlgeschlagen: ' + error.message); process.exitCode = 1; });
+
+// Offline-Tests importieren diese Bausteine, ohne Webhook-Nachrichten auszulösen.
+export { getMetadata, filterCommitTitles, cardFor, releasePayload, testPayload, validateWebhook };
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch(error => { console.error('Benachrichtigung fehlgeschlagen: ' + error.message); process.exitCode = 1; });
+}
