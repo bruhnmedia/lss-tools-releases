@@ -42,7 +42,7 @@ test('Karte hat BRUHN MEDIA Farbwert, Versionsdaten und funktionierende Link-But
   assert.equal(card.accent_color, 0xD93030);
   assert.match(card.components[0].components[0].content, /^## BRUHN MEDIA \| Tools Manager\n/);
   assert.doesNotMatch(card.components[0].components[0].content, /LSS Tools Manager/);
-  assert.match(card.components[2].content, /1\.0\.2.*1\.0\.1/);
+  assert.match(card.components[2].content, /1\.0\.2[\s\S]*1\.0\.1/);
   assert.match(card.components[4].content, /Verbandsfreigabe verbessert/);
   const links = card.components.find(c => c.type === 1).components;
   assert.equal(links.length, 2);
@@ -97,6 +97,20 @@ test('Version 1.3.0 erhält die vorgesehenen deutschen Ankündigungspunkte', () 
   assert.match(selected[0], /Kartenfavoriten/);
   assert.match(selected[1], /Weniger doppelte Abfragen/);
   const payload = releasePayload([{...item, version:'1.3.0', oldVersion:'1.2.1'}]);
-  assert.match(payload.components[0].components[2].content, /1\.3\.0.*1\.2\.1/);
+  assert.match(payload.components[0].components[2].content, /1\.3\.0[\s\S]*1\.2\.1/);
   assert.match(payload.components[0].components[4].content, /Kartenfavoriten/);
+});
+
+test('Highlights erhalten getrennte Absätze und bereinigte Überschriften', () => {
+  const card=cardFor(item,['Kartenfavoriten: Orte speichern und auswählen.','Abfragen: Weniger doppelte Anfragen.']);
+  assert.equal(card.components[4].content,'### Das ist neu\n**Kartenfavoriten**\nOrte speichern und auswählen.\n\n**Abfragen**\nWeniger doppelte Anfragen.');
+  const dirty=cardFor(item,['**Titel**: @everyone <script>']);
+  assert.doesNotMatch(dirty.components[4].content,/@everyone|<script>/);
+});
+test('Update und Erstinstallation haben passende Buttons und direkte Versionshinweise', () => {
+  const update=cardFor(item),first=cardFor({...item,oldVersion:''});
+  assert.equal(update.components.find(c=>c.type===1).components[0].label,'Jetzt aktualisieren');
+  assert.equal(first.components.find(c=>c.type===1).components[0].label,'Jetzt installieren');
+  assert.match(first.components[2].content,/Erste Veröffentlichung/);
+  assert.ok(update.components.find(c=>c.type===1).components[1].url.endsWith('/RELEASE_NOTES.md'));
 });
