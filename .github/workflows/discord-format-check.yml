@@ -3,12 +3,26 @@ name: BRUHN MEDIA | Discord Vorlagenprüfung
 on:
   pull_request:
     paths:
+      - '*.user.js'
+      - '*.meta.js'
+      - 'README.md'
+      - 'RELEASE_NOTES.md'
+      - 'SHA256SUMS.txt'
+      - 'LIZENZ.md'
+      - '.github/scripts/check-release.mjs'
       - '.github/scripts/notify-discord.mjs'
       - '.github/scripts/test-discord-notify.mjs'
       - '.github/workflows/discord-format-check.yml'
   push:
     branches: [main]
     paths:
+      - '*.user.js'
+      - '*.meta.js'
+      - 'README.md'
+      - 'RELEASE_NOTES.md'
+      - 'SHA256SUMS.txt'
+      - 'LIZENZ.md'
+      - '.github/scripts/check-release.mjs'
       - '.github/scripts/notify-discord.mjs'
       - '.github/scripts/test-discord-notify.mjs'
       - '.github/workflows/discord-format-check.yml'
@@ -32,3 +46,7 @@ jobs:
         env:
           REPOSITORY: bruhnmedia/lss-tools-releases
         run: node --test .github/scripts/test-discord-notify.mjs
+      - name: Release-Dateien prüfen
+        run: |
+          node .github/scripts/check-release.mjs
+          node --check BRUHN_MEDIA_LSS_Tools_Manager.user.js
