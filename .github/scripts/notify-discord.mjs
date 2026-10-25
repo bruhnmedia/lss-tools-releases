@@ -115,27 +115,34 @@ function cardFor(item, titles = []) {
   if (!/^[-\w]+\/[-.\w]+$/.test(repo)) throw new Error('Ungueltiger Repositoryname');
   if (!/^[A-Za-z0-9_+-]+\.user\.js$/.test(item.file)) throw new Error('Ungueltiger Scriptname');
   const raw = 'https://raw.githubusercontent.com/' + repo + '/main/' + encodeURIComponent(item.file);
-  const changes = 'https://github.com/' + repo + '/commits/main/' + encodeURIComponent(item.file);
+  const changes = item.file === 'BRUHN_MEDIA_LSS_Tools_Manager.user.js'
+    ? 'https://github.com/' + repo + '/blob/main/RELEASE_NOTES.md'
+    : 'https://github.com/' + repo + '/commits/main/' + encodeURIComponent(item.file);
   // Einheitlicher Produktname; der Dateiname und die Userscript-Metadaten bleiben unverändert.
   const headline = item.file === 'BRUHN_MEDIA_LSS_Tools_Manager.user.js'
     ? 'BRUHN MEDIA | Tools Manager'
     : inlineText(item.name, 165);
-  const notes = titles.length ? titles.slice(0, 2).map(t => '• ' + inlineText(t, 170)).join('\n') :
+  const notes = titles.length ? titles.slice(0, 2).map(t => {
+    const text = inlineText(t, 170);
+    const colon = text.indexOf(':');
+    return colon > 0 && colon < 60
+      ? '**' + text.slice(0, colon) + '**\n' + text.slice(colon + 1).trim()
+      : '• ' + text;
+  }).join('\n\n') :
     'Neue Version veröffentlicht. Weitere Details findest Du im GitHub-Änderungsverlauf.';
-  const tick = String.fromCharCode(96);
   return {
     type: 17, accent_color: BRAND_RED, components: [
       { type: 9, components: [
-        { type: 10, content: '## ' + headline + '\nEine neue Version ist verfügbar.' }
+        { type: 10, content: '## ' + headline + '\n-# MADE TO WORK. · Neues Update' }
       ], accessory: { type: 11, media: { url: BRAND_AVATAR }, description: 'BRUHN MEDIA Logo' } },
       { type: 14, divider: true, spacing: 1 },
-      { type: 10, content: '**Version**  ' + tick + safeVersion(item.version) + tick +
-          '  |  **Vorher**  ' + tick + safeVersion(item.oldVersion) + tick },
+      { type: 10, content: '## Version ' + safeVersion(item.version) + '\n-# ' +
+          (item.oldVersion ? 'Bisher: ' + safeVersion(item.oldVersion) : 'Erste Veröffentlichung') },
       { type: 14, divider: false, spacing: 1 },
-      { type: 10, content: '**Änderungen**\n' + notes },
+      { type: 10, content: '### Das ist neu\n' + notes },
       { type: 1, components: [
-        { type: 2, style: 5, label: 'Userscript installieren', url: raw },
-        { type: 2, style: 5, label: 'Änderungen ansehen', url: changes },
+        { type: 2, style: 5, label: item.oldVersion ? 'Jetzt aktualisieren' : 'Jetzt installieren', url: raw },
+        { type: 2, style: 5, label: 'Alle Neuerungen', url: changes },
       ] },
       { type: 14, divider: true, spacing: 1 },
       { type: 10, content: '-# ' + BRAND_FOOTER }
