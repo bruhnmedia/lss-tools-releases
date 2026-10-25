@@ -18,7 +18,7 @@ test('Deutsche Release-Notizen werden versionsgenau aus der gepflegten Datei gel
     'Dashboard, Verbandsverwaltung und Kartensteuerung offiziell veröffentlicht.',
     'Der BRUHN MEDIA Appstore enthält jetzt alle sieben Module.'
   ]);
-  assert.deepEqual(parseReleaseNotes(notes, '1.2.1'), []);
+  assert.deepEqual(parseReleaseNotes(notes, '0.0.0'), []);
   assert.deepEqual(parseReleaseNotes(notes, '1.1.0'), [
     'Das Modul Karten-Layouts mit fünf verschiedenen Ansichten veröffentlicht.',
     'Volle Fensterhöhe, Scrollbereiche und Seitenleisten-Icons verbessert.'
@@ -88,4 +88,15 @@ test('Webhook-URL erlaubt keine unpassende Adresse oder Abfrageparameter', () =>
   assert.throws(() => validateWebhook(valid + '/github'));
   assert.throws(() => validateWebhook(valid + '?wait=true'));
   assert.throws(() => validateWebhook('https://example.org/api/webhooks/12345/ABC_def'));
+});
+
+test('Version 1.3.0 erhält die vorgesehenen deutschen Ankündigungspunkte', () => {
+  const notes = readFileSync(new URL('../../RELEASE_NOTES.md', import.meta.url), 'utf8');
+  const selected = parseReleaseNotes(notes, '1.3.0');
+  assert.equal(selected.length, 2);
+  assert.match(selected[0], /Kartenfavoriten/);
+  assert.match(selected[1], /Weniger doppelte Abfragen/);
+  const payload = releasePayload([{...item, version:'1.3.0', oldVersion:'1.2.1'}]);
+  assert.match(payload.components[0].components[2].content, /1\.3\.0.*1\.2\.1/);
+  assert.match(payload.components[0].components[4].content, /Kartenfavoriten/);
 });

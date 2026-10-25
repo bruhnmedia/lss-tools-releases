@@ -4,7 +4,7 @@
 
 ## BRUHN MEDIA | Tools Manager
 
-**Aktuelle Version: 1.2.1**
+**Aktuelle Version: 1.3.0**
 
 **[Tools Manager für Tampermonkey installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Tools_Manager.user.js)**
 
@@ -15,7 +15,7 @@ Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und sieben unabhän
 - **Fuhrpark-TÜV:** Überblick über Fahrzeuge, Personalzuweisungen, Sonderausbildungen und den **theoretischen** Ausbildungsbedarf an Wachen. Die Angaben beweisen nicht die tatsächliche Einsatzbereitschaft.
 - **Dashboard:** Auswertungen über Gebäude, Fahrzeuge und Wachen – unter anderem nach Typ, Fahrzeugstatus und Wachenplanung.
 - **Verbandsverwaltung:** Einblick in Verbandsmitglieder und Verbandsstatistiken einschließlich der vom Spiel bereitgestellten Credits und Verlaufsauswertungen.
-- **Kartensteuerung:** Die Karte beim Spielstart dynamisch zentrieren oder eine selbst gewählte Kartenposition speichern und wiederherstellen. Ein zusätzlicher Zielkreuz-Button direkt an der Karte stellt die gespeicherte Position und den Zoom ohne Einblendungen wieder her.
+- **Kartensteuerung:** Die Karte beim Spielstart dynamisch zentrieren oder bis zu 30 benannte Favoriten mit Position und Zoom speichern. Der Stern öffnet die Favoritenverwaltung; das Zielkreuz darüber stellt den gewählten Standard wieder her. Eine bisher gespeicherte Kartenposition wird übernommen.
 - **Karten-Layouts:** Fünf wählbare Desktop-Ansichten für Karte, Einsätze, Wachen, Chat und Funk: Standard, große Karte mit Seitenleiste, Karte oben, Vier-Spalten-Ansicht sowie kompakte Karte links. Die gewählte Ansicht wird gespeichert. In der Seitenleiste lassen sich Bereiche über eigenständige SVG-Icons wechseln; Listen nutzen die verfügbare Höhe und sind bei Bedarf separat scrollbar. Die Seitenleiste bleibt hinter geöffneten Einsatzfenstern.
 
 ### Installation und Bedienung
@@ -26,6 +26,10 @@ Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und sieben unabhän
 4. Leitstellenspiel neu laden und **BRUHN MEDIA → Appstore · Tools verwalten** öffnen.
 5. Gewünschte Module über die Schalter aktivieren oder deaktivieren. Änderungen gelten nach dem Neuladen. Die zusätzlichen Module Dashboard, Verbandsverwaltung, Kartensteuerung und Karten-Layouts sind bei einer Neuinstallation standardmäßig deaktiviert und können gezielt eingeschaltet werden.
 6. Für **Karten-Layouts** das Modul aktivieren, neu laden und anschließend unter **BRUHN MEDIA → Karten-Layouts** eine Ansicht auswählen. Alternativ kann das aktive Modul direkt im Appstore über **Öffnen** gestartet werden. Die Layouts gelten auf der Hauptseite für Desktop-Bildschirme ab 961 px.
+
+**Kartenfavoriten:** Kartensteuerung aktivieren, neu laden und den Stern an der Karte öffnen. „Auswählen“ stellt Position und Zoom wieder her; „Als Standard“ legt das Ziel des Zielkreuzes fest. Favoriten lassen sich umbenennen und nach Bestätigung löschen. Die Speicherung erfolgt lokal im Userscript-Speicher, ohne geräteübergreifende Synchronisierung.
+
+**Datenabfragen:** Gleichzeitig laufende identische Abfragen werden geteilt; spätere Aktualisierungen laden frisch. Dashboard, Verbandsverwaltung und manuelle Kartenzentrierung beenden laufende Abfragen beim Schließen oder Wechseln ihrer Ansicht. Automatische Zentrierung beim Spielstart bleibt unabhängig vom Fenster.
 
 **Automatische Updates:** Tampermonkey nutzt die im Script hinterlegten `@updateURL`- und `@downloadURL`-Adressen. Die Datei `.meta.js` dient der Update-Prüfung und ist keine zweite Installation.
 
