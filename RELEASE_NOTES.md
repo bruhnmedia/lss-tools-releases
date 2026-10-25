@@ -4,6 +4,13 @@ Die Discord-Benachrichtigungen werden aus diesen deutschen Versionshinweisen ers
 Für jede öffentliche neue Tools-Manager-Version wird ein eigener Abschnitt ergänzt.
 Englische Git-Commit-Titel werden nicht automatisch in Discord übernommen.
 
+## 1.3.1
+- Neuer Look: Appstore und Modulfenster erhalten einheitliche Kopfzeilen, klare Karten und übersichtliche Aktionen.
+- Dashboard und Verband: Neue Kennzahlen, scrollbare Tabellen und separate Verlaufskarten. Gespeicherte Verbandswerte sind klar gekennzeichnet.
+- Karten und Favoriten: Standardfavorit mit Position und Zoom auf einen Blick, hervorgehobene Favoriten und übersichtliche Layout-Auswahl.
+- Zuverlässige Abfragen: Fuhrpark und Ausbauplaner stoppen laufende Abrufe beim Schließen beziehungsweise Minimieren. Veraltete Antworten überschreiben keine neuen Ergebnisse.
+- Feinschliff: Bündige Suchfelder, angepasste Freigabe-Buttons und bessere Darstellung auf schmalen Bildschirmen.
+
 ## 1.3.0
 - Kartenfavoriten: Bis zu 30 Orte mit Name und Zoom speichern, auswählen und verwalten. Der gewählte Standard ist über das Zielkreuz erreichbar.
 - Weniger doppelte Abfragen: Identische laufende API-Abrufe werden geteilt. Dashboard, Verband und manuelle Kartenzentrierung stoppen beim Schließen oder Wechseln.
