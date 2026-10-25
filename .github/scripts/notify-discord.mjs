@@ -133,7 +133,7 @@ function cardFor(item, titles = []) {
   return {
     type: 17, accent_color: BRAND_RED, components: [
       { type: 9, components: [
-        { type: 10, content: '## ' + headline + '\n-# MADE TO WORK. · Neues Update' }
+        { type: 10, content: '## ' + headline + '\n-# Made to Work | Neues Update' }
       ], accessory: { type: 11, media: { url: BRAND_AVATAR }, description: 'BRUHN MEDIA Logo' } },
       { type: 14, divider: true, spacing: 1 },
       { type: 10, content: '## Version ' + safeVersion(item.version) + '\n-# ' +
