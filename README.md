@@ -10,15 +10,19 @@
 
 ## Screenshots und Einblicke
 
-So sieht der **BRUHN MEDIA | Tools Manager** direkt im Leitstellenspiel aus. Klicke auf ein Bild, um es größer anzusehen. Die abgebildeten Werte stammen aus einer Spielumgebung.
+Sieh Dir die wichtigsten Funktionen des **BRUHN MEDIA | Tools Managers** direkt im Leitstellenspiel an. Ein Klick auf ein Bild öffnet die größere Ansicht. Die dargestellten Gebäude-, Fahrzeug- und Verbandsdaten stammen aus einer Spielumgebung.
 
-| Appstore – Module aktivieren | Dashboard – Gebäude und Fahrzeuge |
+| BRUHN MEDIA Appstore – Module verwalten | BRUHN MEDIA-Menü – Schnellzugriff |
 |:---:|:---:|
-| [![BRUHN MEDIA Appstore mit sieben Modulen](screenshots/appstore.webp)](screenshots/appstore.webp) | [![Dashboard mit Gebäude- und Fahrzeugübersicht](screenshots/dashboard.webp)](screenshots/dashboard.webp) |
+| [![Appstore mit sieben einzeln aktivierbaren Tools](screenshots/appstore.webp)](screenshots/appstore.webp) | [![BRUHN MEDIA-Menü mit aktivierter Verbandsfreigabe](screenshots/tools-menue.webp)](screenshots/tools-menue.webp) |
+| **BOS Ausbauplaner – Standortübersicht** | **BOS Ausbauplaner – Standortabgleich im Detail** |
+| [![BOS Ausbauplaner mit OSM-Standorten und offenen Prüffällen](screenshots/bos-ausbauplaner-uebersicht.webp)](screenshots/bos-ausbauplaner-uebersicht.webp) | [![BOS Ausbauplaner mit abgeglichenem Feuerwehrstandort auf der Karte](screenshots/bos-ausbauplaner-detail.webp)](screenshots/bos-ausbauplaner-detail.webp) |
+| **Fuhrpark-TÜV – Ausbildungen und Personal** | **Dashboard – Gebäude und Fahrzeuge** |
+| [![Fuhrpark-TÜV mit Personal- und Ausbildungsübersicht](screenshots/fuhrpark-tuev.webp)](screenshots/fuhrpark-tuev.webp) | [![Dashboard mit Gebäudetypen und Fahrzeugbestand](screenshots/dashboard.webp)](screenshots/dashboard.webp) |
 | **Verbandsverwaltung – Statistiken und Verlauf** | **Kartensteuerung – Position und Zoom** |
-| [![Verbandsverwaltung mit Kennzahlen und Verlaufsdiagrammen](screenshots/verbandsverwaltung.webp)](screenshots/verbandsverwaltung.webp) | [![Kartensteuerung mit Modus und gespeicherter Position](screenshots/kartensteuerung.webp)](screenshots/kartensteuerung.webp) |
-| **Karten-Layouts – fünf Ansichten** | **Dashboard – Daten aktualisieren** |
-| [![Karten-Layouts mit fünf verfügbaren Ansichten](screenshots/karten-layouts.webp)](screenshots/karten-layouts.webp) | [![Dashboard beim Einlesen der Spielerdaten](screenshots/dashboard-laden.webp)](screenshots/dashboard-laden.webp) |
+| [![Verbandsverwaltung mit Kennzahlen und Verlaufsdiagrammen](screenshots/verbandsverwaltung.webp)](screenshots/verbandsverwaltung.webp) | [![Kartensteuerung mit Einstellungen für Position und Zoom](screenshots/kartensteuerung.webp)](screenshots/kartensteuerung.webp) |
+| **Karten-Layouts – fünf Ansichten** | **Dashboard – Daten werden geladen** |
+| [![Karten-Layouts mit fünf auswählbaren Desktop-Ansichten](screenshots/karten-layouts.webp)](screenshots/karten-layouts.webp) | [![Dashboard beim Einlesen der Spielerdaten](screenshots/dashboard-laden.webp)](screenshots/dashboard-laden.webp) |
 
 Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und sieben unabhängig schaltbaren Modulen:
 
