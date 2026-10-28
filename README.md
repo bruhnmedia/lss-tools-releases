@@ -8,6 +8,18 @@
 
 **[Tools Manager für Tampermonkey installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Tools_Manager.user.js)**
 
+## Screenshots und Einblicke
+
+So sieht der **BRUHN MEDIA | Tools Manager** direkt im Leitstellenspiel aus. Klicke auf ein Bild, um es größer anzusehen. Die abgebildeten Werte stammen aus einer Spielumgebung.
+
+| Appstore – Module aktivieren | Dashboard – Gebäude und Fahrzeuge |
+|:---:|:---:|
+| [![BRUHN MEDIA Appstore mit sieben Modulen](screenshots/appstore.webp)](screenshots/appstore.webp) | [![Dashboard mit Gebäude- und Fahrzeugübersicht](screenshots/dashboard.webp)](screenshots/dashboard.webp) |
+| **Verbandsverwaltung – Statistiken und Verlauf** | **Kartensteuerung – Position und Zoom** |
+| [![Verbandsverwaltung mit Kennzahlen und Verlaufsdiagrammen](screenshots/verbandsverwaltung.webp)](screenshots/verbandsverwaltung.webp) | [![Kartensteuerung mit Modus und gespeicherter Position](screenshots/kartensteuerung.webp)](screenshots/kartensteuerung.webp) |
+| **Karten-Layouts – fünf Ansichten** | **Dashboard – Daten aktualisieren** |
+| [![Karten-Layouts mit fünf verfügbaren Ansichten](screenshots/karten-layouts.webp)](screenshots/karten-layouts.webp) | [![Dashboard beim Einlesen der Spielerdaten](screenshots/dashboard-laden.webp)](screenshots/dashboard-laden.webp) |
+
 Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und sieben unabhängig schaltbaren Modulen:
 
 - **BOS Ausbauplaner:** Vergleicht Standorte in **Niedersachsen** mit eigenen Spielgebäuden. Zeigt zugeordnete Standorte, Prüffälle und mögliche Ausbaupotenziale. Die realen OSM-Daten sind die Vergleichsgrundlage – es gibt **keinen separaten Reale-Standorte-Tab**.
