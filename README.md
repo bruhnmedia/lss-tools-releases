@@ -4,7 +4,7 @@
 
 ## BRUHN MEDIA | Tools Manager
 
-**Aktuelle Version: 1.3.1**
+**Aktuelle Version: 1.4.0**
 
 **[Tools Manager für Tampermonkey installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Tools_Manager.user.js)**
 
@@ -24,7 +24,9 @@ Sieh Dir die wichtigsten Funktionen des **BRUHN MEDIA | Tools Managers** direkt 
 | **Karten-Layouts – fünf Ansichten** | **Dashboard – Daten werden geladen** |
 | [![Karten-Layouts mit fünf auswählbaren Desktop-Ansichten](screenshots/karten-layouts.webp)](screenshots/karten-layouts.webp) | [![Dashboard beim Einlesen der Spielerdaten](screenshots/dashboard-laden.webp)](screenshots/dashboard-laden.webp) |
 
-Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und sieben unabhängig schaltbaren Modulen:
+> **Hinweis zu den Bildern:** Einige Screenshots stammen noch aus Version 1.3.1 und zeigen deshalb einen Appstore mit sieben Modulen. In der aktuellen Version **1.4.0** sind es acht.
+
+Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und **acht unabhängig schaltbaren Modulen**:
 
 - **BOS Ausbauplaner:** Vergleicht Standorte in **Niedersachsen** mit eigenen Spielgebäuden. Zeigt zugeordnete Standorte, Prüffälle und mögliche Ausbaupotenziale. Die realen OSM-Daten sind die Vergleichsgrundlage – es gibt **keinen separaten Reale-Standorte-Tab**.
 - **Verbandsfreigabe:** Unterstützt die gezielte Freigabe geeigneter Einsätze. Ein erfolgreich angeforderter Freigabe-Aufruf bleibt auch nach dem Neuladen lokal vorgemerkt; die tatsächliche Freigabe ist bei Bedarf im Einsatz zu kontrollieren.
@@ -33,6 +35,7 @@ Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und sieben unabhän
 - **Verbandsverwaltung:** Einblick in Mitgliederzahlen und Verbandsstatistiken einschließlich der vom Spiel bereitgestellten Credits und Verlaufsauswertungen.
 - **Kartensteuerung:** Die Karte beim Spielstart dynamisch zentrieren oder bis zu 30 benannte Favoriten mit Position und Zoom speichern. Der Stern öffnet die Favoritenverwaltung; das Zielkreuz darüber stellt den gewählten Standard wieder her. Eine bisher gespeicherte Kartenposition wird übernommen.
 - **Karten-Layouts:** Fünf wählbare Desktop-Ansichten für Karte, Einsätze, Wachen, Chat und Funk: Standard, große Karte mit Seitenleiste, Karte oben, Vier-Spalten-Ansicht sowie kompakte Karte links. Die gewählte Ansicht wird gespeichert. In der Seitenleiste lassen sich Bereiche über eigenständige SVG-Icons wechseln; Listen nutzen die verfügbare Höhe und sind bei Bedarf separat scrollbar. Die Seitenleiste bleibt hinter geöffneten Einsatzfenstern.
+- **Leitstellenstatus (neu in 1.4.0):** Leitstellen direkt in der Wachenliste aktivieren oder deaktivieren. Grün zeigt eine aktive, Rot eine inaktive Leitstelle. Vor dem Deaktivieren wird eine Bestätigung verlangt; die Änderung betrifft immer nur die ausgewählte Leitstelle. Die Seite wird zur Kontrolle neu geladen. Das Modul ist standardmäßig deaktiviert.
 
 ### Installation und Bedienung
 
@@ -40,8 +43,9 @@ Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und sieben unabhän
 2. [Den Tools Manager installieren](https://raw.githubusercontent.com/bruhnmedia/lss-tools-releases/main/BRUHN_MEDIA_LSS_Tools_Manager.user.js).
 3. Die **alten eigenständigen BRUHN-MEDIA-Addons in Tampermonkey deaktivieren oder deinstallieren**, um doppelte Funktionen zu vermeiden.
 4. Leitstellenspiel neu laden und **BRUHN MEDIA → Appstore · Tools verwalten** öffnen.
-5. Gewünschte Module über die Schalter aktivieren oder deaktivieren. Änderungen gelten nach dem Neuladen. Die zusätzlichen Module Dashboard, Verbandsverwaltung, Kartensteuerung und Karten-Layouts sind bei einer Neuinstallation standardmäßig deaktiviert und können gezielt eingeschaltet werden.
+5. Gewünschte Module über die Schalter aktivieren oder deaktivieren. Änderungen gelten nach dem Neuladen. Die zusätzlichen Module Dashboard, Verbandsverwaltung, Kartensteuerung, Karten-Layouts und **Leitstellenstatus** sind bei einer Neuinstallation standardmäßig deaktiviert und können gezielt eingeschaltet werden.
 6. Für **Karten-Layouts** das Modul aktivieren, neu laden und anschließend unter **BRUHN MEDIA → Karten-Layouts** eine Ansicht auswählen. Alternativ kann das aktive Modul direkt im Appstore über **Öffnen** gestartet werden. Die Layouts gelten auf der Hauptseite für Desktop-Bildschirme ab 961 px.
+7. Für **Leitstellenstatus** das Modul aktivieren und Leitstellenspiel neu laden. Unter **Wachen → Leitstelle** erscheinen anschließend die farbigen Schalter. Die eigenständige Leitstellenstatus-Beta in Tampermonkey **deaktivieren**, falls sie noch installiert ist.
 
 **Kartenfavoriten:** Kartensteuerung aktivieren, neu laden und den Stern an der Karte öffnen. „Auswählen“ stellt Position und Zoom wieder her; „Als Standard“ legt das Ziel des Zielkreuzes fest. Favoriten lassen sich umbenennen und nach Bestätigung löschen. Die Speicherung erfolgt lokal im Userscript-Speicher, ohne geräteübergreifende Synchronisierung.
 
