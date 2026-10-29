@@ -47,6 +47,18 @@ Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und **acht unabhän
 6. Für **Karten-Layouts** das Modul aktivieren, neu laden und anschließend unter **BRUHN MEDIA → Karten-Layouts** eine Ansicht auswählen. Alternativ kann das aktive Modul direkt im Appstore über **Öffnen** gestartet werden. Die Layouts gelten auf der Hauptseite für Desktop-Bildschirme ab 961 px.
 7. Für **Leitstellenstatus** das Modul aktivieren und Leitstellenspiel neu laden. Unter **Wachen → Leitstelle** erscheinen anschließend die farbigen Schalter. Die eigenständige Leitstellenstatus-Beta in Tampermonkey **deaktivieren**, falls sie noch installiert ist.
 
+### Fehlerbehebung
+
+**Ein aktiviertes Modul erscheint nicht:** Öffne **BRUHN MEDIA → Appstore · Tools verwalten**, prüfe den Schalter und lade Leitstellenspiel nach der Änderung neu. Der Appstore zeigt vorgemerkte Änderungen an, bis die Seite neu geladen wurde.
+
+**Leitstellenstatus-Buttons fehlen:** Prüfe, ob **Leitstellenstatus** aktiviert ist und Du unter **Wachen → Leitstelle** bist. Die Statusbuttons werden ausschließlich bei Leitstellen angezeigt, nicht bei Feuer-, Polizei- oder Rettungswachen.
+
+**Leitstellenstatus erscheint doppelt:** Deaktiviere ältere, eigenständige **Leitstellenstatus-Beta-Scripts** und einen eventuell separat installierten **8-Modul-Test-Build** in Tampermonkey. Für die aktuelle Version reicht das eine reguläre Tools-Manager-Script.
+
+**Eine Leitstelle wechselt nicht wie erwartet:** Kontrolliere den tatsächlichen Status nach dem Neuladen über **Details** der betroffenen Leitstelle. Die Schaltfläche verändert nur die ausgewählte Leitstelle; bei unklarem Zustand nicht mehrfach hintereinander klicken.
+
+**Karten-Layouts greifen nicht:** Die alternativen Layouts gelten für die Hauptkarte auf Desktop-Bildschirmen ab **961 px** Breite. Auf kleineren Bildschirmen bleibt die reguläre Darstellung bestehen.
+
 **Kartenfavoriten:** Kartensteuerung aktivieren, neu laden und den Stern an der Karte öffnen. „Auswählen“ stellt Position und Zoom wieder her; „Als Standard“ legt das Ziel des Zielkreuzes fest. Favoriten lassen sich umbenennen und nach Bestätigung löschen. Die Speicherung erfolgt lokal im Userscript-Speicher, ohne geräteübergreifende Synchronisierung.
 
 **Datenabfragen:** Gleichzeitig laufende identische Abfragen werden geteilt; spätere Aktualisierungen laden frisch. Dashboard, Verbandsverwaltung und manuelle Kartenzentrierung beenden laufende Abfragen beim Schließen oder Wechseln ihrer Ansicht. Fuhrpark-Prüfungen stoppen beim Schließen; der Ausbauplaner stoppt Abrufe auch beim Minimieren und Deaktivieren. Automatische Zentrierung beim Spielstart bleibt unabhängig vom Fenster.
