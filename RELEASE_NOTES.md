@@ -4,6 +4,13 @@ Die Discord-Benachrichtigungen werden aus diesen deutschen Versionshinweisen ers
 Für jede öffentliche neue Tools-Manager-Version wird ein eigener Abschnitt ergänzt.
 Englische Git-Commit-Titel werden nicht automatisch in Discord übernommen.
 
+## 1.4.0
+- **Neu: Leitstellenstatus** als achtes Modul im BRUHN MEDIA Appstore. Leitstellen lassen sich direkt in der Wachenliste einzeln aktivieren und deaktivieren.
+- **Sichere Bedienung:** Grüne und rote Statusbuttons zeigen den aktuellen Zustand. Beim Deaktivieren gibt es eine Sicherheitsabfrage. Nach dem Umschalten wird die Seite für eine Kontrolle neu geladen.
+- **Selbstbestimmt:** Das Modul ist standardmäßig deaktiviert und muss im Appstore ausdrücklich eingeschaltet werden. Die übrigen sieben Module und bestehende Einstellungen bleiben erhalten.
+- **Geprüft:** Beide Umschaltrichtungen und die Integration in den Tools Manager wurden im Spiel getestet; die Release-Dateien sind automatisch validiert.
+- **Hinweis:** Eine zuvor separat installierte Leitstellenstatus-Beta sollte in Tampermonkey deaktiviert werden, um doppelte Schalter zu vermeiden.
+
 ## 1.3.1
 - Neuer Look: Appstore und Modulfenster erhalten einheitliche Kopfzeilen, klare Karten und übersichtliche Aktionen.
 - Dashboard und Verband: Neue Kennzahlen, scrollbare Tabellen und separate Verlaufskarten. Gespeicherte Verbandswerte sind klar gekennzeichnet.
