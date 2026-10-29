@@ -76,6 +76,16 @@ Ein einziges Userscript mit eigenem **BRUHN MEDIA Appstore** und **acht unabhän
 | `SHA256SUMS.txt` | SHA-256-Prüfsummen der beiden Dateien |
 | `LIZENZ.md` | Bedingungen für die private, nicht-kommerzielle Nutzung |
 
+## Feedback und Community
+
+Du nutzt die BRUHN MEDIA LSS Tools und hast eine Frage, eine Idee oder einen Fehler entdeckt?
+
+- **[Fehler melden oder eine Funktion vorschlagen](https://github.com/bruhnmedia/lss-tools-releases/issues/new)** – bitte beschreibe das betroffene Modul, die Schritte zum Nachstellen und deine verwendete Script-Version. Teile dabei keine persönlichen Daten oder Zugangsdaten.
+- **[In GitHub Discussions austauschen](https://github.com/bruhnmedia/lss-tools-releases/discussions)** – für Ideen und Fragen aus der Community, die nicht unmittelbar ein Fehlerbericht sind.
+- **[Projekt mit einem Stern unterstützen](https://github.com/bruhnmedia/lss-tools-releases)** – wenn dir unsere Tools im Spiel helfen, freuen wir uns über einen GitHub-Stern. Das macht das Projekt für andere Spieler besser sichtbar.
+
+Du musst kein Entwickler sein, um sinnvolle Rückmeldungen zu geben. Auch Hinweise zur Bedienbarkeit und zum Design sind willkommen.
+
 ## Rechte und Datenbasis
 
 © 2026 BRUHN MEDIA | Alle Rechte vorbehalten.
